@@ -5,7 +5,7 @@ categories: linux
 tags:
 ---
 ---
-多用户FTP 对应不同文件夹.
+多用户FTP 对应不同文件夹..
 #useradd -d /var/www/ftp1 -s /sbin/nologin ftpuserone
 #passwd ftpuserone
 #useradd -d /var/www/ftp2 -s /sbin/nologin ftpusertwo
