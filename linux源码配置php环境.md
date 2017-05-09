@@ -146,3 +146,25 @@ extension=curl.so
 /usr/local/php/bin/php -m
 重启http
 ```
+
+nginx 支持php环境
+```bash
+nginx最常用的方法是利用 tcp/ip 协议连接 phpfastcgi 接口, 因此要连接php必须先启动fastcgi程序.
+
+启动方法：
+
+# /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/lib/php.ini
+
+vim /usr/local/nginx/conf/nginx.conf
+#增加 
+location ~ \.php(.*)$  {
+                root            /var/www;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_split_path_info  ^((?U).+\.php)(/?.+)$;
+                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+                fastcgi_param  PATH_INFO  $fastcgi_path_info;
+                fastcgi_param  PATH_TRANSLATED  $document_root$fastcgi_path_info;
+                include        fastcgi_params;
+        }
+```
