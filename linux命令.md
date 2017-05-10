@@ -51,3 +51,13 @@ nginx          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
 #关闭开启自启
 [root@iZbp14a08o2w4yosoq3h1mZ ~]# chkconfig nginx off
 ```
+
+时间同步更新
+时区查看
+```bash
+date -R
+修改时区
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+//同步时间
+ntpdate -u ntp.api.bz
+```

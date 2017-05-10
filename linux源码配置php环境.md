@@ -153,7 +153,7 @@ nginx最常用的方法是利用 tcp/ip 协议连接 phpfastcgi 接口, 因此�
 
 启动方法：
 
-# /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/lib/php.ini
+# /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/php/lib/php.ini
 
 vim /usr/local/nginx/conf/nginx.conf
 #增加 

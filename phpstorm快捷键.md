@@ -21,6 +21,12 @@ Alt+1 打开侧边栏
 隐藏包路径 view/Navigation Bar
 隐藏面包屑 control+alt+s 搜索bread 出来 show breadcrumbs 去掉
 隐藏文件名 Windows/Tabs Placement/None
+自动换行   File->Settings->Editor->general 勾选 “ Use soft wrap in editor ”
+是在Preferences->Editor->Code Style->PHP->Other里面取消Line comment at first column之前的勾选就行了
+大括号换行 setting -> editor -> code style -> php -> Wrapping and Braces -> Braces placement -> In function declaration Next line
+等号对齐  setting -> editor -> code style -> php -> Wrapping and Braces -> Assignment statement ->Align consecutive assignments	true
+数组对齐  setting -> editor -> code style -> php -> Other -> Align key-value pairs
+
 3. 破解phpstorm
 选择Lincense server
 如果http://15.idea.lanyus.com/方法无法激活。可以将其替换为http://jetbrains.tencent.click
