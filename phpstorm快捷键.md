@@ -26,6 +26,7 @@ Alt+1 打开侧边栏
 大括号换行 setting -> editor -> code style -> php -> Wrapping and Braces -> Braces placement -> In function declaration Next line
 等号对齐  setting -> editor -> code style -> php -> Wrapping and Braces -> Assignment statement ->Align consecutive assignments	true
 数组对齐  setting -> editor -> code style -> php -> Other -> Align key-value pairs
+显示行数  setting -> editor ->Appearance -> Show line numbers
 
 3. 破解phpstorm
 选择Lincense server

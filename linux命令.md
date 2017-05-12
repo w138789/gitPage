@@ -61,3 +61,10 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 //同步时间
 ntpdate -u ntp.api.bz
 ```
+
+替换文件夹内所有文件的内容
+```bash
+sed -i "s/www.zgfz520.com/www.zhongfang.com/g" `grep www.zgfz520.com -rl ./*`
+```
+
+
