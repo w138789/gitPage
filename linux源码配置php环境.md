@@ -95,7 +95,18 @@ cd /php-5.3.16
 --with-apxs2=/usr/local/apache2/bin/apxs \
 --with-mysqli=/usr/local/mysql/bin/mysql_config \
 --with-pdo-mysql=/usr/local/mysql/ \
+--with-mysql \
+ --enable-fpm \
 --with-php-config=/usr/local/php/bin/php-config  注意mysql_config 的路径
+
+#下面是nginx的
+./configure --prefix=/usr/local/php \
+--with-mysqli=/usr/local/mysql/bin/mysql_config \
+--with-pdo-mysql=/usr/local/mysql/ \
+--with-mysql \
+--enable-fpm \
+--with-php-config=/usr/local/php/bin/php-config 
+
 ```
 注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，
 其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，
@@ -153,7 +164,14 @@ nginx最常用的方法是利用 tcp/ip 协议连接 phpfastcgi 接口, 因此�
 
 启动方法：
 
-# /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/php/lib/php.ini
+1# /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/php/lib/php.ini
+
+2配置php-fpm启动
+cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+cp init.d.php-fpm /etc/init.d/php-fpm
+chmod a+x /etc/init.d/php-fpm
+service php-fpm start
+
 
 vim /usr/local/nginx/conf/nginx.conf
 #增加 
