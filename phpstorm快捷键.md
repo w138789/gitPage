@@ -27,6 +27,7 @@ Alt+1 打开侧边栏
 等号对齐  setting -> editor -> code style -> php -> Wrapping and Braces -> Assignment statement ->Align consecutive assignments	true
 数组对齐  setting -> editor -> code style -> php -> Other -> Align key-value pairs
 显示行数  setting -> editor ->Appearance -> Show line numbers
+修改SSH字体大小 setting -> editor -> Colors & Fonts -> Console Font -- Size
 
 3. 破解phpstorm
 选择Lincense server
