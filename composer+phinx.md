@@ -18,4 +18,7 @@ composer require robmorgan/phinx
 #可能被墙
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 vendor/bin/phinx init
+mkdir db/migrations
 ```
+3 phinx 中文文档
+https://tsy12321.gitbooks.io/phinx-doc/content/

@@ -35,7 +35,167 @@ DirectoryIndex index.html index.php
 ＃ServerName www.example.com:80
 修改为：
 ServerName 127.0.0.1:80或者ServerName localhost:80
-记得要去掉前面的“＃”    
+记得要去掉前面的“＃” 
+
+安装nginx
+tar  -zxvf nginx-1.13.0.tar.gz
+cd /nginx-1.13.0
+./configure --prefix=/usr/local/nginx
+make && make install
+配置开机启动脚本
+```bash
+vim /etc/init.d/nginx
+
+#!/bin/sh
+#
+# nginx - this script starts and stops the nginx daemon
+#
+# chkconfig:   - 85 15
+# description:  Nginx is an HTTP(S) server, HTTP(S) reverse \
+#               proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config:      /etc/nginx/nginx.conf
+# config:      /etc/sysconfig/nginx
+# pidfile:     /var/run/nginx.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
+
+nginx="/usr/local/nginx/sbin/nginx"
+prog=$(basename $nginx)
+
+sysconfig="/etc/sysconfig/$prog"
+lockfile="/var/lock/subsys/nginx"
+pidfile="/usr/local/nginx/logs/${prog}.pid"
+
+NGINX_CONF_FILE="/usr/local/nginx/conf/nginx.conf"
+
+[ -f $sysconfig ] && . $sysconfig
+
+
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc -p $pidfile $prog
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    configtest_q || return 6
+    stop
+    start
+}
+
+reload() {
+    configtest_q || return 6
+    echo -n $"Reloading $prog: "
+    killproc -p $pidfile $prog -HUP
+    echo
+}
+
+configtest() {
+    $nginx -t -c $NGINX_CONF_FILE
+}
+
+configtest_q() {
+    $nginx -t -q -c $NGINX_CONF_FILE
+}
+
+rh_status() {
+    status $prog
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+# Upgrade the binary with no downtime.
+upgrade() {
+    local oldbin_pidfile="${pidfile}.oldbin"
+
+    configtest_q || return 6
+    echo -n $"Upgrading $prog: "
+    killproc -p $pidfile $prog -USR2
+    retval=$?
+    sleep 1
+    if [[ -f ${oldbin_pidfile} && -f ${pidfile} ]];  then
+        killproc -p $oldbin_pidfile $prog -QUIT
+        success $"$prog online upgrade"
+        echo 
+        return 0
+    else
+        failure $"$prog online upgrade"
+        echo
+        return 1
+    fi
+}
+
+# Tell nginx to reopen logs
+reopen_logs() {
+    configtest_q || return 6
+    echo -n $"Reopening $prog logs: "
+    killproc -p $pidfile $prog -USR1
+    retval=$?
+    echo
+    return $retval
+}
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest|reopen_logs)
+        $1
+        ;;
+    force-reload|upgrade) 
+        rh_status_q || exit 7
+        upgrade
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    status|status_q)
+        rh_$1
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 7
+        restart
+	    ;;
+    *)
+        echo $"Usage: $0 {start|stop|reload|configtest|status|force-reload|upgrade|restart|reopen_logs}"
+        exit 2
+esac
+
+:wq
+chmod 755 nginx
+chkconfig --add nginx
+chkconfig nginx on
+```
 
 二.安装mysql
 1、下载地址 
@@ -106,7 +266,6 @@ cd /php-5.3.16
 --with-mysql \
 --enable-fpm \
 --with-php-config=/usr/local/php/bin/php-config 
-
 ```
 注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，
 其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，
@@ -114,6 +273,7 @@ cd /php-5.3.16
 我的理解是通过这个工具把PHP模块动态加载到Apache中
 出现错误:configure: error: xml2-config not found. Please check your libxml2 installation.
 运行yum install libxml2，然后再运行yum install libxml2-devel安装完毕后，重新运行上面的./configure命令。
+
 2. 编译
 make   
 3. 测试编译
