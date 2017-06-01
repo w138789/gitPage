@@ -67,4 +67,12 @@ ntpdate -u ntp.api.bz
 sed -i "s/www.zgfz520.com/www.zhongfang.com/g" `grep www.zgfz520.com -rl ./*`
 ```
 
-
+php mysql 加入系统环境变量
+```bash
+vim /etc/profile
+PATH=$PATH:/usr/local/php/bin:/usr/local/mysql/bin
+export PATH
+:wq
+source /etc/profile 执行文件
+echo $PATH 查看是否加入成功
+```

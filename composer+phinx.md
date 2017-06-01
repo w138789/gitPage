@@ -26,10 +26,13 @@ composer require robmorgan/phinx
 #可能被墙
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 vendor/bin/phinx init
+mkdir db/migrations
+```
+3 phinx 中文文档
+https://tsy12321.gitbooks.io/phinx-doc/content/
 ```
 
 安装错误:
 1 PHP Warning:  copy(): Unable to find the wrapper "https" - did you forget to enable it when you configured PHP? in Command line code on line 1
 安装openssl.so 扩展
-2 
 
