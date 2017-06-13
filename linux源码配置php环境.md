@@ -242,8 +242,9 @@ service mysqld stop
 #查看运行状态
 service mysqld status
 6.1 配置环境变量
-vi + /etc/profile
-export PATH=....:/usr/local/mysql/bin
+vim /etc/profile
+PATH=$PATH:/usr/local/mysql/bin
+export PATH
 ```
 
 三、安装PHP 
@@ -316,6 +317,92 @@ extension=curl.so
 查看是否加载了CURL扩展
 /usr/local/php/bin/php -m
 重启http
+```
+安装gd扩展
+```bash
+1.进入相应外部库文件位置
+vim /root/php-5.6.9/ext/gd  
+
+提示：在源码包的ext目录下会有很多外部库文件的源码，不知道是不是全部都在那里面。
+2.安装GD库相应的依赖
+
+1.安装vpx
+yum install -y libvpx libvpx-devel  
+
+2.安装jpeg 
+yum install -y libjpeg-turbo libjpeg-turbo-devel  
+
+3.安装png 
+yum install -y libpng libpng-devel  
+
+4.安装fretype
+yum install -y freetype freetype-devel  
+
+提示：我用的是阿里云的源，这些软件都可以找到，如果不行的话请自行切换
+
+
+3.配置编译GD库
+/usr/local/php/lib/phpize && ./configure --with-php-config=/web/server/php/bin/php-config --with-vpx-dir=/usr/local/ --with-jpeg-dir=/usr/local/  --with-png-dir=/usr/local/ --with-freetype-dir=/usr/local && make && make install
+
+添加如下一行：
+vim /usr/local/php/lib/php.ini
+extension=gd.so
+```
+
+安装mcrypt扩展
+```bash
+1 先去http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包 ,下面是我找到的链接
+
+libmcrypt-2.5.8.tar.gz
+下载地址: http://sourceforge.net/project/showfiles.php?group_id=87941&package_id=91774&release_id=487459
+mhash-0.9.9.tar.gz
+下载地址: http://sourceforge.net/project/showfiles.php?group_id=4286&package_id=4300&release_id=645636
+mcrypt-2.6.8.tar.gz
+下载地址: http://sourceforge.net/project/showfiles.php?group_id=87941&package_id=91948&release_id=642101
+
+2 先安装Libmcrypt
+
+#tar -zxvf libmcrypt-2.5.8.tar.gz
+
+   #cd libmcrypt-2.5.8
+
+   #./configure
+
+   #make
+
+   #make install 说明：libmcript默认安装在/usr/local
+
+3 安装mhash
+
+   #tar -zxvf mhash-0.9.9.9.tar.gz
+
+   #cd mhash-0.9.9.9
+
+   #./configure
+
+   #make
+
+   #make install
+
+4 安装mcrypt
+
+   #tar -zxvf mcrypt-2.6.8.tar.gz
+
+   #cd mcrypt-2.6.8
+
+   #LD_LIBRARY_PATH=/usr/local/lib ./configure
+
+   #make
+
+   #make install
+5 安装php扩展
+cd /root/php-5.6.3/ext/mcrypt
+/usr/local/php/bin/phpize
+./configure
+make && make install
+添加*.so加载
+vim /usr/local/php/lib/php.ini
+extension=mcrypt.so
 ```
 
 nginx 支持php环境

@@ -32,3 +32,4 @@ Alt+1 打开侧边栏
 3. 破解phpstorm
 选择Lincense server
 如果http://15.idea.lanyus.com/方法无法激活。可以将其替换为http://jetbrains.tencent.click
+或者http://idea.lanyus.com/
