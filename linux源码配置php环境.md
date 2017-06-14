@@ -266,6 +266,8 @@ cd /php-5.3.16
 --with-pdo-mysql=/usr/local/mysql/ \
 --with-mysql \
 --enable-fpm \
+--with-gd \
+--with-freetype-dir=/usr/include/freetype2/freetype/ \
 --with-php-config=/usr/local/php/bin/php-config 
 ```
 注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，
@@ -348,6 +350,7 @@ yum install -y freetype freetype-devel
 vim /usr/local/php/lib/php.ini
 extension=gd.so
 ```
+如果不行重新编绎安装php
 
 安装mcrypt扩展
 ```bash
