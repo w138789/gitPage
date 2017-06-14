@@ -342,7 +342,7 @@ yum install -y freetype freetype-devel
 
 
 3.配置编译GD库
-/usr/local/php/lib/phpize && ./configure --with-php-config=/web/server/php/bin/php-config --with-vpx-dir=/usr/local/ --with-jpeg-dir=/usr/local/  --with-png-dir=/usr/local/ --with-freetype-dir=/usr/local && make && make install
+/usr/local/php/lib/phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --with-vpx-dir=/usr/local/ --with-jpeg-dir=/usr/local/  --with-png-dir=/usr/local/ --with-freetype-dir=/usr/local && make && make install
 
 添加如下一行：
 vim /usr/local/php/lib/php.ini
