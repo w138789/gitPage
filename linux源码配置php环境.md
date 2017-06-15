@@ -350,7 +350,7 @@ yum install -y freetype freetype-devel
 vim /usr/local/php/lib/php.ini
 extension=gd.so
 ```
-如果不行重新编绎安装php
+如果不行重新编绎安装php 重新安装前先make clean
 
 安装mcrypt扩展
 ```bash
