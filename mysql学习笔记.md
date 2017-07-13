@@ -41,4 +41,5 @@ DROP TABLE IF EXISTS tb_1; 删除数据表
 CHECK TABLE tb_1; 检查表是否有错误
 OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间
 insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表
+git bash 登录mysql: winpty mysql -u root
 ```
