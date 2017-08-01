@@ -19,6 +19,7 @@ service mysqld start
 /etc/init.d/vsftpd start
 3.修改文件夹可写权限
 chmod -R a+w 目录名   -R是递归久是在该目录下所有文件将都按照这个权限设置
+chmod 664 文件正常权限
 4.查找文件位置
 find / -name access.log //文件名字
 5.复制文件
