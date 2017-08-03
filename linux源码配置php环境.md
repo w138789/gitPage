@@ -267,6 +267,7 @@ cd /php-5.3.16
 --with-mysql \
 --enable-fpm \
 --with-gd \
+--with-jpeg-dir \
 --with-freetype-dir=/usr/include/freetype2/freetype/ \
 --with-php-config=/usr/local/php/bin/php-config 
 ```
