@@ -77,3 +77,5 @@ export PATH
 source /etc/profile 执行文件
 echo $PATH 查看是否加入成功
 ```
+lvm 扩容
+https://www.dwhd.org/20150521_225146.html
