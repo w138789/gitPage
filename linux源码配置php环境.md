@@ -267,6 +267,7 @@ cd /php-5.3.16
 --with-mysql \
 --enable-fpm \
 --with-gd \
+--with-jpeg-dir \
 --with-freetype-dir=/usr/include/freetype2/freetype/ \
 --with-php-config=/usr/local/php/bin/php-config 
 ```
@@ -421,6 +422,8 @@ cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 cp init.d.php-fpm /etc/init.d/php-fpm
 chmod a+x /etc/init.d/php-fpm
 service php-fpm start
+//php7.1安装注意:
+cp /usr/local/php-7.1.1/etc/php-fpm.d/www.conf.default /usr/local/php-7.1.1/etc/php-fpm.d/www.conf
 
 
 vim /usr/local/nginx/conf/nginx.conf
