@@ -28,6 +28,8 @@ mv su3.conf su1.conf
 7.压缩忽略单个文件夹
 ``` bash
 zip -r lanren11.zip * -x "images*"
+//打包并压缩文件夹
+tar -zcvf sanyun.tar.gz *
 ```
 压缩忽略多个文件夹
 ``` bash
