@@ -1,7 +1,7 @@
 ---
 title: vpn翻墙
-date: 2017-09-23 10:20:13
-categories: vpn
+date: 2017-09-20 10:20:13
+categories: others
 ---
 1购买bandwagonhost服务器
 搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。
