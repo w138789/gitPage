@@ -1,6 +1,6 @@
 ---
 title: CentOS 6.5yum安装MySQL 5.6
-date: 2016-06-13 17:12:30
+date: 2017-09-20 17:12:30
 categories: mysql
 tags:
 ---
@@ -9,7 +9,7 @@ tags:
 
 CentOS 6.5 默认yum只能安装mysql 5.1
 安装前要检查机器原来是否安装过mysql，如有安装需要先进行数据备份、清理。
-
+```bash
 [root@snails ~]# yum list installed | grep mysql
 [root@snails ~]# ps -ef|grep mysql
 [root@snails ~]# service mysqld stop 
@@ -33,7 +33,21 @@ mysql56-community          MySQL 5.6 Community Server                        265
 
 [root@snails ~]# yum -y install mysql-server mysql
 
-作者：技术学习
-链接：http://www.jianshu.com/p/5a2e4e0b6eda
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+mysql innodb启动失败无法重启的处理方法
+解决方法
+
+1.如果数据不重要或已经有备份，只需要恢复mysql启动
+
+进入mysql目录，一般是：/var/lib/mysql/ 
+删除ib_logfile* 
+删除ibdata* 
+//删除所有数据库物理目录（例如数据库为test_db,则执行rm -rf test_db） 
+重启动mysql 
+//重新建立数据库或使用备份覆盖 
+
+//修改内存占用过大
+vim my.cnf
+performance_schema_max_table_instances=600
+table_definition_cache=400
+table_open_cache=25
+```
