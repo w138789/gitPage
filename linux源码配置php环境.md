@@ -328,7 +328,7 @@ vim /root/php-5.6.9/ext/gd
 
 提示：在源码包的ext目录下会有很多外部库文件的源码，不知道是不是全部都在那里面。
 2.安装GD库相应的依赖
-
+http://www.centoscn.com/image-text/config/2015/0825/6059.html
 1.安装vpx
 yum install -y libvpx libvpx-devel  
 
