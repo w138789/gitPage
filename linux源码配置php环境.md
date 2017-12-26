@@ -270,6 +270,19 @@ cd /php-5.3.16
 --with-jpeg-dir \
 --with-freetype-dir=/usr/include/freetype2/freetype/ \
 --with-php-config=/usr/local/php/bin/php-config 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./configure --prefix=/usr/local/php5.6.32 \
+--with-mysqli \
+--with-pdo \
+--with-pdo-mysql \
+--with-mysql \
+--enable-fpm \
+--with-vpx-dir \
+--with-gd \
+--with-jpeg-dir \
+--with-freetype-dir=/usr/include/freetype2/freetype/ \
+--with-php-config=/usr/local/php/bin/php-config \
+--disable-fileinfo
 ```
 注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，
 其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，
