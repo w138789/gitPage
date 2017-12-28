@@ -261,15 +261,17 @@ cd /php-5.3.16
 --with-php-config=/usr/local/php/bin/php-config  注意mysql_config 的路径
 
 #下面是nginx的
-./configure --prefix=/usr/local/php \
+./configure --prefix=/usr/local/php7.2.0 \
 --with-mysqli=/usr/local/mysql/bin/mysql_config \
 --with-pdo-mysql=/usr/local/mysql/ \
---with-mysql \
+--with-mysql=/usr/local/mysql \
 --enable-fpm \
 --with-gd \
---with-jpeg-dir \
---with-freetype-dir=/usr/include/freetype2/freetype/ \
---with-php-config=/usr/local/php/bin/php-config 
+--with-curl \
+--with-jpeg-dir=/usr/local/jpeg \
+--with-png-dir=/usr/local/libpng \
+--with-freetype-dir=/usr/local/freetype/ \
+--with-php-config=/usr/local/php7.2.0/bin/php-config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./configure --prefix=/usr/local/php5.6.32 \
 --with-mysqli \
