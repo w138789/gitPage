@@ -267,10 +267,11 @@ cd /php-5.3.16
 --with-mysql=/usr/local/mysql \
 --enable-fpm \
 --with-gd \
---with-curl \
 --with-jpeg-dir=/usr/local/jpeg \
 --with-png-dir=/usr/local/libpng \
 --with-freetype-dir=/usr/local/freetype/ \
+--with-mbstring \
+--with-curl \
 --with-php-config=/usr/local/php7.2.0/bin/php-config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./configure --prefix=/usr/local/php5.6.32 \
