@@ -35,11 +35,13 @@ tar -zcvf sanyun.tar.gz *
 压缩忽略多个文件夹
 ``` bash
 zip -r lanren22.zip * -x "data*" -x "ueditor*"
+```
 解压sql.gz文件
+``` bash
 Linux解压缩保留源文件的方法：
 gunzip –c filename.sql.gz > filename
-```
 每秒跟踪文件存储
+```
 ```bash
 watch -n1 ls -lh
 #查看cpu使用
