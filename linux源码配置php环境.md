@@ -213,6 +213,8 @@ useradd -g mysql mysql
 cd /usr/local/mysql/<br>mkdir ./data/mysql
 chown -R mysql:mysql ./
 ./scripts/mysql_install_db --user=mysql --datadir=/usr/local/mysql/data/mysql
+//5.7.20
+./bin/mysqld --initalize --user=mysql
 cp support-files/mysql.server /etc/init.d/mysqld
 chmod 755 /etc/init.d/mysqld
 cp support-files/my-default.cnf /etc/my.cnf
