@@ -285,6 +285,7 @@ cp -r mysql-5.6.33-linux-glibc2.5-x86_64 /usr/local/mysql
 groupadd mysql
 #添加用户mysql 到用户组mysql
 useradd -g mysql mysql
+useradd -s /sbin/nologin -d /usr/local/mysql5.7.20 mysql -g mysql
 #安装
 cd /usr/local/mysql/<br>mkdir ./data/mysql
 chown -R mysql:mysql ./
