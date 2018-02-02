@@ -326,6 +326,41 @@ PATH=$PATH:/usr/local/mysql/bin
 export PATH
 ```
 
+ubuntu:
+源码下载地址：http://dev.mysql.com/downloads/mysql/ 
+```bash
+选择 Select Operating System:
+->Source Code
+->Generic Linux (Architecture Independent), Compressed TAR Archive Includes Boost Headers
+(mysql-boost-5.7.21.tar.gz)
+第一步： 搭建跨平台安装（编译工具）。
+sudo apt-get install cmake -y
+第三步： 安装C/C++编译器
+sudo apt-get install gcc g++ -y
+第四步：安装LINUX常用图形库
+apt-get install libncurses5 libncurses5-dev -y
+第五步：预编译参数
+cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DSYSCONFDIR=/etc -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=/usr/local/mysql/data -DWITH_BOOST=boost
+make
+make install
+groupadd mysql
+useradd -s /sbin/nologin mysql -g mysql
+mkdir /usr/local/mysql/data  
+chown -R mysql:mysql /usr/local/mysql  
+初始化MySQL安装。
+/usr/local/mysql/bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+设置mysqld服务。
+cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld  
+chmod +x /etc/init.d/mysqld  
+update-rc.d mysqld defaults  
+service mysqld start
+设置mysql符号连接。
+ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql
+更新root密码
+set password for 'root'@'localhost'=password('123456');
+```
+
 三、安装PHP 
 1. 解压
 ```bash
