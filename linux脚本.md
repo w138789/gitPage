@@ -48,6 +48,6 @@ echo 123456 | sudo -S service cron start
 备份远程库到本地
 ```bash
 #!/bin/bash
-mysqldump -h120.78.81.67 -u root -pLaobing1981! laobing > /home/su/databaseBak/laobing.sql
+mysqldump -h120.78.81.* -u root -p123456 laobing > /home/su/databaseBak/laobing.sql
 mysql -u root -p123456 laobing < /home/su/databaseBak/laobing.sql
 ```
