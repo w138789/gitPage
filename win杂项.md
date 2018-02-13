@@ -5,3 +5,4 @@ categories: win
 ---
 修改win10开机引导项
 下载diskgenius, 设置 硬盘->重建主引导记录(MBR)
+下载easybcd,编辑疏导菜单
