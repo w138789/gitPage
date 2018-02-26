@@ -87,5 +87,3 @@ echo $PATH 查看是否加入成功
 lvm 扩容
 https://www.dwhd.org/20150521_225146.html
 
-完全删除软件
-http://blog.csdn.net/u010571844/article/details/50819704
