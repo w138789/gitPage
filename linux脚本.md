@@ -57,7 +57,7 @@ passwords="laobing7026546"
 packageName="laobing_"`date +%Y%m%d`"_"`date +%H`":"`date +%M`":*.sql"
 
 expect<<-END
-set timeout 3
+set timeout 5
 send_user staring\r
 spawn /usr/bin/ssh laobing@120.78.81.67 '/home/laobing/bash/mysqlLaobing.sh'
 expect -re $CMD_PROMPT
@@ -69,7 +69,7 @@ exit
 END
 
 expect<<-END
-set timeout 3
+set timeout 5
 send_user staring\r
     spawn /usr/bin/scp laobing@120.78.81.67:/home/laobing/mysqlDump/${packageName}".gz" /home/su/databaseBak/
     expect -re $CMD_PROMPT
