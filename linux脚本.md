@@ -48,6 +48,39 @@ echo 123456 | sudo -S service cron start
 备份远程库到本地
 ```bash
 #!/bin/bash
-mysqldump -h120.78.81.* -u root -p123456 laobing > /home/su/databaseBak/laobing.sql
-mysql -u root -p123456 laobing < /home/su/databaseBak/laobing.sql
+
+# 匹配提示符
+CMD_PROMPT="\](\$|#)"
+
+passwords="laobing7026546"
+
+packageName="laobing_"`date +%Y%m%d`"_"`date +%H`":"`date +%M`":*.sql"
+
+expect<<-END
+set timeout 5
+send_user staring\r
+spawn /usr/bin/ssh laobing@120.78.81.67 '/home/laobing/bash/mysqlLaobing.sh'
+expect -re $CMD_PROMPT
+    send -- $passwords\r
+    expect -re $CMD_PROMPT
+set timeout 6000
+    expect eof
+exit
+END
+
+expect<<-END
+set timeout 5
+send_user staring\r
+    spawn /usr/bin/scp laobing@120.78.81.67:/home/laobing/mysqlDump/${packageName}".gz" /home/su/databaseBak/
+    expect -re $CMD_PROMPT
+    send -- $passwords\r
+    expect -re $CMD_PROMPT
+set timeout 6000
+    expect eof
+exit
+END
+
+gzip -df /home/su/databaseBak/${packageName}".gz"
+
+mysql -u root -p123456 laobing < /home/su/databaseBak/${packageName}
 ```
