@@ -34,6 +34,7 @@ tunnels:
 
 5搭建自有服务器
 注意: 需要两个域名: sujianxun.com ngrok.sujianxun.com 两个域名必需指向服务器
+      如果域名不一样要重新生成客户端
 建insert.sh
 ```bash
 #!/bin/bash
