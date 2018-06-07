@@ -456,7 +456,12 @@ sudo apt-get install gcc g++ -y
 第四步：安装LINUX常用图形库
 apt-get install libncurses5 libncurses5-dev -y
 第五步：预编译参数
-cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DSYSCONFDIR=/etc -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=/usr/local/mysql/data -DWITH_BOOST=boost
+cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
+-DSYSCONFDIR=/etc \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_general_ci \
+-DMYSQL_DATADIR=/usr/local/mysql/data \
+-DWITH_BOOST=boost
 make
 make install
 groupadd mysql
