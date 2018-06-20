@@ -46,4 +46,4 @@ http://idea.ibdyr.com
 点击页面中的“获得注册码”，然后在注册时切换至Activation Code选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）
 搭建phpstorm服务器
 https://github.com/a252937166/new-idea-server
-
+服务器:Cannot obtain ticket http://idea.sujianxun.com:1027
