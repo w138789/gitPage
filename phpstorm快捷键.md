@@ -35,3 +35,15 @@ Alt+1 打开侧边栏
 或者http://idea.lanyus.com/
 破解2017.2 http://imsxm.com/ 或者 http://www.imsxm.com/
 2017.3 http://idea.ibdyr.com  或者 https://www.imsxm.com/
+方法一. 通过Licence Server 激活PHPStorm（快速）
+方法原理是通过搭建服务器激活,不过网上有许多搭建好的。
+http://idea.goxz.gq
+http://v2mc.net:1017
+http://idea.imsxm.com （2016版）
+http://idea.ibdyr.com
+注：不一定长期有效
+方法二. 直接用浏览器打开 http://idea.lanyus.com/ （推荐）
+点击页面中的“获得注册码”，然后在注册时切换至Activation Code选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）
+搭建phpstorm服务器
+https://github.com/a252937166/new-idea-server
+服务器:Cannot obtain ticket http://idea.sujianxun.com:1027

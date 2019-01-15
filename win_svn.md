@@ -5,7 +5,7 @@ categories: win_svn
 ---
 1，新建一个目录用于存储SVN所有文件 
 mkdir D:/svn
-2，新建一个版本仓库 
+2，新建一个版本仓库
 svnadmin create D:/svn/repository
 3.
 打开 svnserve.conf

@@ -7,4 +7,12 @@ categories: git
 强制覆盖本地文件
 git fetch --all
 git reset --hard origin/master
+储藏缓存文件
+git stash
+查看列表
+git stash list
+清空你所有的内容
+git stash clear
+删除第一个队列
+git stash drop stash@{0}
 ```
