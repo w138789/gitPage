@@ -35,9 +35,8 @@ startsecs=1 ;程序重启时候停留在runing状态的秒数
 startretries=5 ;启动失败时的最多重试次数 
 redirect_stderr=true ;重定向stderr到stdout  
 stdout_logfile=/var/www/santai/log/supervisor/jPush ;stdout文件
+```
 :wq
 多个进程复制多个文件
 服务开启的时候可能其中一个无法正常启动,需要手动启动相应进程
 sudo supervisorctl start jPush
-
-```
