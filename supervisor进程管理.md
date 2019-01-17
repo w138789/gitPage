@@ -26,7 +26,7 @@ sudo vim /etc/supervisor/conf.d/jPush.conf
 [program:jPush]
 command= /usr/local/php7.2.5/bin/php think queue:work --queue="jPush" --delay=0 --memory=128 --sleep=3 --tries=0 --daemon  
 directory= /var/www/santai 
-user=su 
+user=su  ;启动进程用户
 ;process_name=%(process_num)02d
 ;numprocs=5 ;启动几个进程 
 autostart=true ;随着supervisord的启动而启动 
