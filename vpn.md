@@ -96,3 +96,44 @@ source /etc/profile
 浏览器代理填写ip: 127.0.0.1 prot: 8118
 
 ```
+
+配置命令行polipo
+```bash
+sudo apt-get install polipo
+
+sudo vim /etc/polipo/config
+proxyPort的端口号默认是8123
+
+# This file only needs to list configuration variables that deviate
+# from the default values.  See /usr/share/doc/polipo/examples/config.sample
+# and "polipo -v" for variables you can tweak and further information.
+
+logSyslog = true
+logFile = /var/log/polipo/polipo.log
+
+proxyAddress = "0.0.0.0" 
+proxyPort = 8123 
+
+socksParentProxy = "127.0.0.1:1080"  
+socksProxyType = socks5  
+
+chunkHighMark = 50331648  
+objectHighMark = 16384  
+
+serverMaxSlots = 64  
+serverSlots = 16  
+serverSlots1 = 32
+
+重启polipo服务
+sudo service polipo restart
+
+export http_proxy="http://127.0.0.1:8123"  
+export https_proxy="https://127.0.0.1:8123"
+在命令行下执行设置临时环境变量。
+
+或者添加至~/.bashrc文件中使所有的shell均可实现全局SOCKS访问。
+
+或者添加至/etc/profile文件中使所有程序都实现全局SOCKS访问。
+
+
+```
