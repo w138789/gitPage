@@ -507,6 +507,12 @@ cd /php-5.3.16
 --with-freetype-dir=/usr/local/freetype/ \
 --with-mbstring \
 --with-curl \
+--with-bcmath \
+--with-openssl \
+--with-redis \
+--with-swoole \
+--with-pcntl \
+--with-mbstring \
 --with-php-config=/usr/local/php7.2.0/bin/php-config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./configure --prefix=/usr/local/php5.6.32 \
