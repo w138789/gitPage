@@ -548,6 +548,13 @@ cd /php-5.3.16
 我的理解是通过这个工具把PHP模块动态加载到Apache中
 出现错误:configure: error: xml2-config not found. Please check your libxml2 installation.
 运行yum install libxml2，然后再运行yum install libxml2-devel安装完毕后，重新运行上面的./configure命令。
+php5.3 错误:
+configure: error: Please reinstall the libcurl distribution -
+    easy.h should be in <curl-dir>/include/curl/
+
+apt-get install curl
+apt-get install libcurl4-gnutls-dev
+sudo ln -s /usr/include/x86_64-linux-gnu/curl /usr/include/
 
 2. 编译
 make   
