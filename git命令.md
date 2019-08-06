@@ -15,4 +15,8 @@ git stash list
 git stash clear
 删除第一个队列
 git stash drop stash@{0}
+服务器上出现Your branch is ahead of 'origin/master' by 17 commits.
+解决办法: 强制覆盖本地文件
+git fetch --all
+git reset --hard origin/master
 ```
