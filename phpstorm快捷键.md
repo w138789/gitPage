@@ -15,6 +15,24 @@ CTRL+ []   光标移动到 {}[]开头或结尾位置
 ctrl+shift+enter(智能完善代码
 SHIFT+ESC  光 标返回编辑框,关闭无用的窗口
 Alt+1 打开侧边栏
+F3   向下查找关键字出现位置
+SHIFT+F3  查找上一个
+F4   查找变量来源
+ALT+SHIFT+C  查找修改的文件，最近变更历史
+CTRL+ALT+I  自动缩进
+CTRL+ALT+O  优化导入的类和包
+CTRL+P   方法参数提示，显示默认参数
+CTRL+J   自动代码提示，自动补全
+CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里
+ALT+INSERT  生成代码(如GET,SET方法,构造函数等)
+CTRL+H        显 示类结构图
+CTRL+Q   显示代码注释
+CTRL+ []   光标移动到 {}[]开头或结尾位置
+CTRL+SHIFT+[]    选中块代码，可以快速复制
+CTRL+ALT+F12  资源管理器打开文件夹，跳转至当前文件在磁盘上的位置
+SHIFT+ALT+INSERT 竖编辑模式
+alt + '7': 显示当前的类/函数结构。类似于eclipse中的outline的效果。试验了一下，要比aptana的给力一些，但还是不能完全显示prototype下面的方法名。
+
 2. 隐藏其他东西
 隐藏底下条 view/Status Bar
 隐藏四周条 view/Tool Buttons
