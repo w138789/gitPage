@@ -34,3 +34,22 @@ $ git push -u origin master
 git fetch --all  
 git reset --hard origin/master 
 git pull
+
+Git 配置代理， 加速 git clone
+1. 首先，本地挂好代理工具，不多说。默认情况下端口是 1080。
+2. 在 Git 命令行输入以下配置全局代理：
+```bash
+//127.0.0.1指的是本地，1080指的是代理工具设置的端口
+git config --global http.proxy socks5://127.0.0.1:1080
+```
+3. 使用以下命令查看是否配置好
+```bash
+git config --global -e
+查看到有即成功
+[http]
+        proxy = socks5://127.0.0.1:1080
+```
+4. 取消代理使用命令：
+```bash
+git config --global --unset http.proxy
+```
