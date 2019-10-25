@@ -65,3 +65,6 @@ http://idea.ibdyr.com
 搭建phpstorm服务器
 https://github.com/a252937166/new-idea-server
 服务器:Cannot obtain ticket http://idea.sujianxun.com:1027
+
+4. 支持中文搜索
+setting -> Appearance & Behavior -> Appearance 去掉 Override default fonts by (not recommended): 打勾选项
