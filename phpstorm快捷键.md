@@ -68,3 +68,6 @@ https://github.com/a252937166/new-idea-server
 
 4. 支持中文搜索
 setting -> Appearance & Behavior -> Appearance 去掉 Override default fonts by (not recommended): 打勾选项
+
+5. 2019.2去掉ctrl+e重复点击不可顺序往下选中文件
+setting -> keymap -> Main menu -> View -> Toggle Changed Only Files 去掉快捷键
