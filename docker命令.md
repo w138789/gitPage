@@ -6,7 +6,7 @@ categories: docker
 ```bash
 1. mysql安装
 
-#摘取镜像
+#拉取镜像
 docker pull mysql:latest
 
 #运行容器
@@ -63,7 +63,7 @@ CMD ["php-fpm"]
 docker build -t php .
 
 #运行容器
-docker run --name  php -v ~/nginx/www:/www  -d php
+docker run --name  php -v /home/su/www:/www  -d php
 
 #创建 ~/nginx/conf/conf.d 目录：
 
@@ -127,7 +127,8 @@ location ~ \.php($|/) {
 }
 
 #/www/test/: 是  php 文件的存储路径，映射到本地的 ~/nginx/www 目录, php程序文件放在这个目录。
-
+#拉取镜像
+docker pull nginx
 #启动nginx
 docker run --name nginx -p 80:80 -d \
     -v ~/nginx/www:/usr/share/nginx/html:ro \
