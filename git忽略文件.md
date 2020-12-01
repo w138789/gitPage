@@ -14,4 +14,11 @@ categories: git
 git rm -r --cached .
 git add .
 git commit -m "update .gitignore"
+
+对于已入库文件, 命令：
+git update-index --assume-unchanged FILENAME       路径+文件名
+若以后不想忽略该文件的修改，则输入命令：
+git update-index --no-assume-unchanged FILENAME 
+查看全部已忽略的文件：
+git ls-files -v | grep '^h\ '
 ```
