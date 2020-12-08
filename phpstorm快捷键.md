@@ -71,3 +71,6 @@ setting -> Appearance & Behavior -> Appearance 去掉 Override default fonts by 
 
 5. 2019.2去掉ctrl+e重复点击不可顺序往下选中文件
 setting -> keymap -> Main menu -> View -> Toggle Changed Only Files 去掉快捷键
+
+6. PHPStorm使用PHP7新特性出现红色波浪错误
+setting -> Languages & Frameworks -> PHP 发现PHP language level不可修改 -> Composer 去掉Synchronize IDE Settings with composer.json选项 点击Apply -> 返回 -> PHP 修改PHP language level 选项 选择php7.2
