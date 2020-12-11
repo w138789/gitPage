@@ -90,7 +90,7 @@ https://www.dwhd.org/20150521_225146.html
 完全删除软件
 http://blog.csdn.net/u010571844/article/details/50819704
 
-vim替换1
+vim替换
 ```bash
 全文：
 :%s/foo/bar/g
