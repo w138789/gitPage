@@ -43,4 +43,5 @@ OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间
 insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表
 git bash 登录mysql: winpty mysql -u root
 SET PASSWORD = PASSWORD('newpasswd'); 修改root密码
+select table_name from information_schema.columns where table_schema = 'helibao' and column_name='trading_num'; 查询字段在数据库的哪个表里 table_schema: 数据库, trading_num: 查询字段
 ```

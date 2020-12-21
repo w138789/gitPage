@@ -94,4 +94,8 @@ vim替换
 ```bash
 全文：
 :%s/foo/bar/g
+
+Nginx重启失败 Active: failed (Result: exit-code)
+sudo fuser -k 80/tcp
+sudo fuser -k 443/tcp
 ```
