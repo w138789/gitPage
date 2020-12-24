@@ -56,7 +56,9 @@ git config --global --unset http.proxy
 
 git ssh走代理
 ```bash
-1. 增加配置文件
+1. 安装程序
+sudo apt install netcat-openbsd
+2. 增加配置文件
 vim ~/.bashrc
 #git代理
 export all_proxy="socks5://127.0.0.1:1080"
@@ -64,8 +66,10 @@ export all_proxy="socks5://127.0.0.1:1080"
 
 vim ~/.ssh/config
 #配置github走代理
-Host git@github.com
-Hostname git@github.com
-ProxyCommand nc 127.0.0.1 1080 %h %p
+Host github.com
+User git
+Hostname github.com
+ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
+ServerAliveInterval 30
 :wq
 ```

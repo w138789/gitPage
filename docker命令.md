@@ -135,4 +135,36 @@ docker run --name nginx -p 80:80 -d \
     -v ~/nginx/conf/conf.d:/etc/nginx/conf.d:ro \
     --link php:php \
     nginx
+
+docker通过双容器和nginx进行平滑重启
+1. 建立两个容器,分别设置容器端口不一样.
+2. 主机建立nginx配置文件, 通过注释server, service nginx reload 来进行平滑重启
+vim test.conf
+# 至少需要一个 Hyperf 节点，多个配置多行
+upstream hyperf {
+    # Hyperf HTTP Server 的 IP 及 端口
+    server 127.0.0.1:9501;
+    #server 127.0.0.1:9502;
+}
+
+server {
+    # 监听端口
+    listen 80; 
+    # 绑定的域名，填写您的域名
+    server_name www.hyperf.com;
+
+    location / {
+        # 将客户端的 Host 和 IP 信息一并转发到对应节点  
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # 转发Cookie，设置 SameSite
+        proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+
+        # 执行代理访问真实服务器
+        proxy_pass http://hyperf;
+    }
+}
+:wq
 ```
