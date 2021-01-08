@@ -166,5 +166,10 @@ server {
         proxy_pass http://hyperf;
     }
 }
+
+# 删除镜像
+docker rmi -f $(docker images -qa)
+# 删除容器
+docker rm $(docker ps -aq)
 :wq
 ```
