@@ -41,6 +41,8 @@ services:
             - lnmp-network
     redis:
         image: redis
+        ports:
+            - "6379:6379"
         networks:
             - lnmp-network
 networks: 
@@ -118,7 +120,6 @@ server {
 mkdir -p dockerFile/php
 vim dockerFile/php/Dockerfile
 FROM php:7.2-fpm-stretch
-WORKDIR /www
 RUN echo "deb http://mirrors.aliyun.com/debian/ stretch main non-free contrib" > /etc/apt/sources.list \
 && echo "deb-src http://mirrors.aliyun.com/debian/ stretch main non-free contrib" >> /etc/apt/sources.list \
 && echo "deb http://mirrors.aliyun.com/debian-security stretch/updates main" >> /etc/apt/sources.list \
