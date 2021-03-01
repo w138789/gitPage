@@ -171,5 +171,8 @@ server {
 docker rmi -f $(docker images -qa)
 # 删除容器
 docker rm $(docker ps -aq)
+
+#容器加入现有网络
+docker network connect base_net web
 :wq
 ```
